@@ -78,7 +78,7 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, J
             currentIndex = defaultSelectedIndex
         }
     }
-    private var currentIndex: Int = 0
+    public var currentIndex: Int = 0
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -274,7 +274,7 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, J
         if type == .scrollView {
             list.listView().frame = CGRect(x: CGFloat(index)*scrollView.bounds.size.width, y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
             scrollView.addSubview(list.listView())
-            
+
             if segmentedViewShouldRTLLayout() {
                 segmentedView(horizontalFlipForView: list.listView())
             }
@@ -314,7 +314,7 @@ open class JXSegmentedListContainerView: UIView, JXSegmentedViewListContainer, J
                 if list.listView().superview == nil {
                     list.listView().frame = CGRect(x: CGFloat(index)*scrollView.bounds.size.width, y: 0, width: scrollView.bounds.size.width, height: scrollView.bounds.size.height)
                     scrollView.addSubview(list.listView())
-                    
+
                     if segmentedViewShouldRTLLayout() {
                         segmentedView(horizontalFlipForView: list.listView())
                     }
